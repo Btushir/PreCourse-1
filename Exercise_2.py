@@ -1,46 +1,65 @@
 """
 Stack is a type of LIFO (Last in First Out) data structure meaning element
-    added at the end of stack is processed first. There are multiple operations that can be performed on the stack.
-    (1) push element to stack (2) pop element from stack (3) peek element from stack (4) get size of stack and more.
-    This program implement stack using Linked List and perform operations such as push, pop. Edge cases: (1) pop
-     while stack is empty.
-
-    Time complexity: push: O(1) since adding to the start of LL, pop: O(1) since first element is removed
-
-    Space complexity: O(n) that is size of stack
-
-    Did this code successfully run on Leetcode : Yes
-
-    Any problem you faced while coding this :
-    There is no need to keep track of tail. The elements can be added at head and popped from the head only.
-
+added at the end of stack is processed first. There are multiple operations that can be performed on the stack.
+(1) push element to stack (2) pop element from stack (3) peek element from stack (4) get size of stack and more.
+This program implement stack using Linked List and perform operations such as push, pop.
 """
+
 
 class Node:
     def __init__(self, data):
+        """
+        Constructor for Node class, where object of  node class consists of two attributes: data and next.
+        Data represent the value and next is the pointer to next node.
+        """
         self.data = data
         self.next = None
 
 
 class Stack:
     def __init__(self):
-        self.head = None
+        """
+        Constructor for stack class, that creates dummy head node when object of stack is instantiated.
+        """
+        self.dummyHead = Node(0)
         self.size = 0
 
     def push(self, data):
+        """
+        This is method to push an element into stack.
+        Parameters:
+            data: element to be pushed into stack
+        Returns:
+            None
+        Example:
+            stack = MyStack()
+            stack.push()
+        TC: O(1) since elements are added at the head if linked list only.
+
+        """
         newNode = Node(data)
-        newNode.next = self.head
-        self.head = newNode
-        self.size += 1
+        newNode.next = self.dummyHead.next
+        self.dummyHead.next = newNode
 
     def pop(self):
-        if self.head:
-            popedVal = self.head.data
-            self.head = self.head.next
-            self.size -= 1
-            return popedVal
+        """
+        This is method to pop an element from stack.
+        Parameters:
+            None
+        Returns:
+            the popped element from stack
+        Example:
+            stack = MyStack()
+            stack.pop()
+        TC: O(1) since elements are popped from the head of linked list.
 
-        return -1
+        """
+        if self.dummyHead.next:
+            popedEle = self.dummyHead.next.data
+            self.dummyHead.next = self.dummyHead.next.next
+            return popedEle
+
+        return
 
 
 a_stack = Stack()

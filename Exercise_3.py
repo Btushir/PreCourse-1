@@ -4,8 +4,8 @@ class ListNode:
     """
 
     def __init__(self, data=None, next=None):
+        self.next = next
         self.data = data
-        self.next = None
 
 
 class SinglyLinkedList:
@@ -14,21 +14,18 @@ class SinglyLinkedList:
         Create a new singly-linked list.
         Takes O(1) time.
         """
-        self.head = None
-        self.tail = None
+        self.head = ListNode(0)
+        self.size = 0
 
     def append(self, data):
         """
         Insert a new element at the end of the list.
         Takes O(n) time.
         """
+        curr = self.head
         newNode = ListNode(data)
-        if self.tail:
-            self.tail.next = newNode
-            self.tail = newNode
-        else:
-            self.head = newNode
-            self.tail = newNode
+
+
 
     def find(self, key):
         """
@@ -55,7 +52,6 @@ class SinglyLinkedList:
                 prev.next = curr.next
 
         print()
-
 
     def getLinkedList(self):
         curr = self.head
