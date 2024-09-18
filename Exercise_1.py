@@ -1,27 +1,17 @@
-class MyStack:
-    """
-    Stack is a type of LIFO (Last in First Out) data structure meaning element
-    added at the end of stack is processed first. There are multiple operations that can be performed on the stack.
+"""
+    Stack is a type of LIFO (Last in First Out) data structure meaning last added element is processed first.
+     There are multiple operations that can be performed on the stack.
     (1) push element to stack (2) pop element from stack (3) peek element from stack (4) get size of stack and more.
     This program implement stack using array and perform operations such as push, pop, peek, get size of stack,
-    print stack. Edge cases: (1) pop while stack is empty.
-    Did this code successfully run on Leetcode : Yes
-    Any problem you faced while coding this :
-    I got into one error while solving it on leetcode: when incrementing the stack item by some value:
-    I used this:
-         for item in stack:
-              item += value
-    corrected code:
-        for idx in range(len(stack)):
-            stack[idx] += value
-
-    The problem with first code is that it is updating the item variable not the value in stack,
-    so we need to change the value at index
+    print stack.
     """
 
+class MyStack:
     def __init__(self):
         """
-        Constructor of the class MyStack, called when an object of the class is created.
+        Constructor for class MyStack, called when an object/instance of the class is created.
+        stack is implemented using array. Element are added/popped from the end of the array.
+        Takes O(1) time.
         """
         self.stack = []
 
@@ -31,11 +21,11 @@ class MyStack:
         Parameters:
             None
         Returns:
-            None
+            boolean
         Example:
             stack = MyStack()
             stack.isEmpty() # Return True if stack is empty
-        TC: O(1)
+        TC: O(1) because the size of array can be retrieved in O(1) time
         """
         if self.stack:
             return True
@@ -51,7 +41,7 @@ class MyStack:
         Example:
             stack = MyStack()
             stack.push()
-        TC: O(1) since stack is implemented using array
+        TC: O(1) since an element can be added to array in O(1) time
         """
         self.stack.append(item)
 
@@ -65,7 +55,7 @@ class MyStack:
         Example:
             stack = MyStack()
             stack.pop()
-        TC: O(1) since stack is implemented using array
+        TC: O(1) since element can be removed from array in O(1) time
         """
         if self.stack:
             return self.stack.pop()
@@ -77,12 +67,11 @@ class MyStack:
         Parameters:
             None
         Returns:
-            the top element from stack
+            the last element added to stack
         Example:
             stack = MyStack()
             stack.peek()
-        TC: O(1) since stack is implemented using array
-
+        TC: O(1) since last element in an array can be accessed in O(1) time
         """
         return self.stack[-1]
 
@@ -96,7 +85,7 @@ class MyStack:
         Example:
             stack = MyStack()
             stack.size()
-        TC: O(1) since stack is implemented using array
+        TC: O(1) since array size can be retrieved in O(1) time
 
         """
         return len(self.stack)
@@ -111,7 +100,7 @@ class MyStack:
         Example:
             stack = MyStack()
             stack.show()
-        TC: O(n) since need to traverse the stack
+        TC: O(n) since need to traverse the whole array
         """
         return self.stack
 

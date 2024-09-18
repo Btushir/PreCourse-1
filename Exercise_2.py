@@ -1,8 +1,8 @@
 """
-Stack is a type of LIFO (Last in First Out) data structure meaning element
-added at the end of stack is processed first. There are multiple operations that can be performed on the stack.
+Stack is a type of LIFO (Last in First Out) data structure meaning last added element is processed first.
+ There are multiple operations that can be performed on the stack.
 (1) push element to stack (2) pop element from stack (3) peek element from stack (4) get size of stack and more.
-This program implement stack using Linked List and perform operations such as push, pop.
+This program implement stack using Linked List and perform push and pop operations.
 """
 
 
@@ -11,6 +11,7 @@ class Node:
         """
         Constructor for Node class, where object of  node class consists of two attributes: data and next.
         Data represent the value and next is the pointer to next node.
+        Takes O(1) time.
         """
         self.data = data
         self.next = None
@@ -20,6 +21,7 @@ class Stack:
     def __init__(self):
         """
         Constructor for stack class, that creates dummy head node when object of stack is instantiated.
+        Takes O(1) time.
         """
         self.dummyHead = Node(0)
         self.size = 0
