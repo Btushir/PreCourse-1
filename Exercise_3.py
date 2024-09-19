@@ -31,7 +31,8 @@ class SinglyLinkedList:
         """
         newNode = ListNode(data)
         curr = self.dummyHead
-        for _ in range(self.size):
+        for _ in range(self.size):  # for size = 0, loop doesnt start, size = 1, loop runs once, size =2 , loop runs
+            # 2 times
             curr = curr.next
 
         curr.next = newNode
@@ -67,7 +68,6 @@ class SinglyLinkedList:
             prev = curr
 
         print("key not present in LL")
-
 
     def getLinkedList(self):
         curr = self.dummyHead.next
